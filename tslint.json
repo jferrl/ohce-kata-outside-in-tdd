@@ -11,7 +11,6 @@
         "curly": [true, "ignore-same-line"],
         "cyclomatic-complexity": [true, 6],
         "deprecation": true,
-        "interface-name": [true, "never-prefix"],
         "match-default-export-name": true,
         "member-access": [true, "no-public"],
         "member-ordering": [
