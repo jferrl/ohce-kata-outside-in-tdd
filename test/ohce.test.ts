@@ -1,27 +1,29 @@
+import { mock, mockReset } from 'jest-mock-extended';
+
+import { Greeter } from '../src/greeter';
+import { Informer } from '../src/informer';
 import { Ohce } from '../src/ohce';
+
+// tslint:disable: no-unbound-method
 
 describe('Ohce', (): void => {
     const user = 'Pepe';
+    const greeter = mock<Greeter>();
+    const informer = mock<Informer>();
+
+    beforeEach((): void => {
+        mockReset(greeter);
+    });
 
     it('should greet the user with good morning', (): void => {
         const greeting = '¡Buenos días Pepe!';
-        const sut = new Ohce();
 
-        expect(sut.start()).toBe(greeting);
-    });
+        greeter.greet.calledWith(user).mockReturnValue(greeting);
 
-    it('should greet the user with good afternoon', (): void => {
-        const greeting = '¡Buenos tardes Pepe!';
-        const sut = new Ohce();
-
-        expect(sut.start()).toBe(greeting);
-    });
-
-    it('should greet the user with good evening', (): void => {
-        const greeting = '¡Buenos noches Pepe!';
-        const sut = new Ohce();
-
-        expect(sut.start()).toBe(greeting);
+        const sut = new Ohce(greeter, informer);
+        sut.run(user);
+        expect(greeter.greet).toHaveBeenCalledWith(user);
+        expect(informer.greetUser).toHaveBeenCalledWith(greeting);
     });
 });
 
