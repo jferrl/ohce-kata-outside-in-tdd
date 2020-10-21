@@ -25,6 +25,18 @@ describe('Ohce', (): void => {
         expect(greeter.greet).toHaveBeenCalledWith(user);
         expect(informer.greetUser).toHaveBeenCalledWith(greeting);
     });
+
+    it('should say good bye', (): void => {
+        const greeting = '¡Buenos días Pepe!';
+
+        greeter.greet.calledWith(user).mockReturnValue(greeting);
+
+        const sut = new Ohce(greeter, informer);
+        sut.run(user);
+        expect(greeter.greet).toHaveBeenCalledWith(user);
+        expect(informer.greetUser).toHaveBeenCalledWith(greeting);
+        expect(informer.goodbye).toHaveBeenCalledWith(user);
+    });
 });
 
 // Card: Role - Responsabilities, Colaborators
