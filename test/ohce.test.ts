@@ -20,7 +20,7 @@ describe('Ohce', (): void => {
 
         greeter.greet.calledWith(user).mockReturnValue(greeting);
 
-        const sut = new Ohce(greeter, informer);
+        const sut = new Ohce(greeter, informer, user);
         sut.run(user);
         expect(greeter.greet).toHaveBeenCalledWith(user);
         expect(informer.greetUser).toHaveBeenCalledWith(greeting);
@@ -31,7 +31,7 @@ describe('Ohce', (): void => {
 
         greeter.greet.calledWith(user).mockReturnValue(greeting);
 
-        const sut = new Ohce(greeter, informer);
+        const sut = new Ohce(greeter, informer, user);
         sut.run(user);
         expect(greeter.greet).toHaveBeenCalledWith(user);
         expect(informer.greetUser).toHaveBeenCalledWith(greeting);
