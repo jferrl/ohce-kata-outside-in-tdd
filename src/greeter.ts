@@ -16,7 +16,7 @@ export class Greeter implements IGreeter {
     greet(username: string): string {
         const hour = this.clock.hour();
         if (this.isMorningTime(hour)) {
-            return `¡Buenos dias ${username}!`;
+            return `¡Buenos días ${username}!`;
         }
         if (this.isAfternoonTime(hour)) {
             return `¡Buenas tardes ${username}!`;
