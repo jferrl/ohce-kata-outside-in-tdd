@@ -29,6 +29,7 @@
         "@types/node": "^13.13.5",
         "jest": "^26.0.1",
         "jest-each": "^26.0.1",
+        "mock-stdin": "^1.0.0",
         "ts-jest": "^25.5.0",
         "tslint": "^6.1.2",
         "tslint-config-prettier": "^1.18.0",
