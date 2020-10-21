@@ -2,7 +2,7 @@ import { IGreeter } from './greeter';
 import { Informer } from './informer';
 
 export class Ohce {
-    constructor(private readonly greeter: IGreeter, private readonly informer: Informer, readonly username: string = '') {}
+    constructor(private readonly greeter: IGreeter, private readonly informer: Informer, private readonly username: string) {}
 
     run(): void {
         this.greet();
