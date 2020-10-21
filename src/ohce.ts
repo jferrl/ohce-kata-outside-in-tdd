@@ -4,17 +4,17 @@ import { Informer } from './informer';
 export class Ohce {
     constructor(private readonly greeter: Greeter, private readonly informer: Informer, readonly username: string = '') {}
 
-    run(username: string): void {
-        this.greet(username);
-        this.goodbye(username);
+    run(): void {
+        this.greet();
+        this.goodbye();
     }
 
-    private greet(username: string): void {
-        const greeting = this.greeter.greet(username);
+    private greet(): void {
+        const greeting = this.greeter.greet(this.username);
         this.informer.greetUser(greeting);
     }
 
-    private goodbye(username: string): void {
-        this.informer.goodbye(username);
+    private goodbye(): void {
+        this.informer.goodbye(this.username);
     }
 }
