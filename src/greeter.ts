@@ -3,7 +3,7 @@ import { IClock } from './clock';
 enum TimeThreshols {
     Morning = 6,
     Afternoon = 12,
-    Evening = 20
+    Night = 20
 }
 
 export interface IGreeter {
@@ -32,10 +32,10 @@ export class Greeter implements IGreeter {
     }
 
     private isAfternoonTime(time: number): boolean {
-        return time >= TimeThreshols.Afternoon && time < TimeThreshols.Evening;
+        return time >= TimeThreshols.Afternoon && time < TimeThreshols.Night;
     }
 
     private isEveningTime(time: number): boolean {
-        return time >= TimeThreshols.Evening || time < TimeThreshols.Morning;
+        return time >= TimeThreshols.Night || time < TimeThreshols.Morning;
     }
 }
